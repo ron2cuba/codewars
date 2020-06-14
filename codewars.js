@@ -236,14 +236,29 @@ function validParentheses(str) {
 // solution('abc') // should return ['ab', 'c_']
 // solution('abcdef') // should return ['ab', 'cd', 'ef']
 
-//str pair on separe tous les dexu carateres
+//str pair on separe tous les deux carateres
 //str impair on ajoute _ au tableau
 
 function solution(str) {
-  if (str.length <= 0) {
-    return false;
+  var initialArray = str.split("");
+  var newTab = [];
+  var result = [];
+  //incremantation de deux pour ne pas avoir de doublon
+  for (var i = 0; i < initialArray.length; i = i + 2) {
+    var pair = [];
+    //on concat i et i+1
+    pair.push(initialArray[i], initialArray[i + 1]);
+    //push de pair dans newtab
+    newTab.push(pair);
   }
-  if (str.length % 2 === 0) {
-    return str.split("", 2);
+  //on transforme chaque entree de newTab  en str
+  for (var i = 0; i < newTab.length; i++) {
+    var pairString = "";
+    pairString = newTab[i].join("");
+    result.push(pairString);
   }
+  if (result[result.length - 1].length % 2 !== 0) {
+    result[result.length - 1] += "_";
+  }
+  return result;
 }
