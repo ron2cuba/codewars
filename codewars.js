@@ -240,34 +240,47 @@ function solution(str) {
   var initialArray = str.split("");
   var newTab = [];
   var result = [];
+
   //incremantation de deux pour ne pas avoir de doublon
+  if (str.length % 2 !== 0) {
+    initialArray.push("_");
+  }
   for (var i = 0; i < initialArray.length; i = i + 2) {
     var pair = [];
     //on push i et i+1 dans pair
     pair.push(initialArray[i], initialArray[i + 1]);
+
     //push de pair dans newtab
     newTab.push(pair);
   }
+
   //on transforme chaque entree de newTab  en str
   for (var i = 0; i < newTab.length; i++) {
     var pairString = "";
     pairString = newTab[i].join("");
     result.push(pairString);
   }
-  //si en fin de tableau result
-  /* if (result[result.length - 1].length % 2 !== 0) {
-    result[result.length - 1] += "_";
-  } */
-  if (result[result.length - 1] % 2 !== 0) {
-    result[result.length - 1] += "_";
-  }
+  //si fin de tableau impair
+  console.log(result.length);
   return result;
 }
 
-// Write a function that will find all the anagrams of a word from a list.You will be given two inputs a word and an array with words.You should return an array of all the anagrams or an empty array if there are none.For example:
+// Pete likes to bake some cakes.He has some recipes and ingredients.Unfortunately he is not good in maths.Can you help him to find out, how many cakes he could bake considering his recipes ?
 
-// anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']) => ['aabb', 'bbaa']
+//   Write a function cakes(), which takes the recipe(object) and the available ingredients(also an object) and returns the maximum number of cakes Pete can bake(integer).For simplicity there are no units for the amounts(e.g. 1 lb of flour or 200 g of sugar are simply 1 or 200).Ingredients that are not present in the objects, can be considered as 0.
 
-// anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer']) => ['carer', 'racer']
+// Examples:
 
-// anagrams('laser', ['lazing', 'lazy', 'lacer']) => []
+// // must return 2
+// cakes({ flour: 500, sugar: 200, eggs: 1 }, { flour: 1200, sugar: 1200, eggs: 5, milk: 200 });
+// // must return 0
+// cakes({ apples: 3, flour: 300, sugar: 150, milk: 100, oil: 100 }, { sugar: 500, flour: 2000, milk: 2000 });
+
+function cakes(recipe, available) {
+  let possibleCake;
+  console.log(recipe, available);
+  if (recipe == available) {
+    return 1;
+  }
+  return possibleCake;
+}
