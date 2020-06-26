@@ -236,9 +236,6 @@ function validParentheses(str) {
 // solution('abc') // should return ['ab', 'c_']
 // solution('abcdef') // should return ['ab', 'cd', 'ef']
 
-//str pair on separe tous les deux carateres
-//str impair on ajoute _ au tableau
-
 function solution(str) {
   var initialArray = str.split("");
   var newTab = [];
@@ -246,7 +243,7 @@ function solution(str) {
   //incremantation de deux pour ne pas avoir de doublon
   for (var i = 0; i < initialArray.length; i = i + 2) {
     var pair = [];
-    //on concat i et i+1
+    //on push i et i+1 dans pair
     pair.push(initialArray[i], initialArray[i + 1]);
     //push de pair dans newtab
     newTab.push(pair);
@@ -257,8 +254,20 @@ function solution(str) {
     pairString = newTab[i].join("");
     result.push(pairString);
   }
-  if (result[result.length - 1].length % 2 !== 0) {
+  //si en fin de tableau result
+  /* if (result[result.length - 1].length % 2 !== 0) {
+    result[result.length - 1] += "_";
+  } */
+  if (result[result.length - 1] % 2 !== 0) {
     result[result.length - 1] += "_";
   }
   return result;
 }
+
+// Write a function that will find all the anagrams of a word from a list.You will be given two inputs a word and an array with words.You should return an array of all the anagrams or an empty array if there are none.For example:
+
+// anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']) => ['aabb', 'bbaa']
+
+// anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer']) => ['carer', 'racer']
+
+// anagrams('laser', ['lazing', 'lazy', 'lacer']) => []
