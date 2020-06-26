@@ -264,10 +264,19 @@ function solution(str) {
   return result;
 }
 
-// Write a function that will find all the anagrams of a word from a list.You will be given two inputs a word and an array with words.You should return an array of all the anagrams or an empty array if there are none.For example:
+// Your task is to make a function that can take any non - negative integer as a argument and return it with its digits in descending order.Essentially, rearrange the digits to create the highest possible number.
 
-// anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']) => ['aabb', 'bbaa']
+//   Examples:
+// Input: 21445 Output: 54421
 
-// anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer']) => ['carer', 'racer']
+// Input: 145263 Output: 654321
 
-// anagrams('laser', ['lazing', 'lazy', 'lacer']) => []
+// Input: 123456789 Output: 987654321
+function descendingOrder(n) {
+  if (n < 0) {
+    return false;
+  } else {
+    biggestNumberArray = Array.from(n.toString()).sort().reverse();
+    return parseInt(biggestNumberArray.join(""));
+  }
+}
